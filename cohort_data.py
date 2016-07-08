@@ -1,3 +1,5 @@
+cohort_data = open('cohort_data.txt')
+
 def unique_houses(filename):
     """TODO: Create a set of student houses.
 
@@ -16,10 +18,18 @@ def unique_houses(filename):
 
     houses = set()
 
-    # Code goes here
+    for line in filename:
+        lines = line.rstrip()
+        new_lines = lines.split('|')
 
+        for house in new_lines:
+            house_name=new_lines[2]
+            houses.add(house_name)
+
+    houses.remove('')    
     return houses
 
+unique_houses(cohort_data)
 
 def sort_by_cohort(filename):
     """TODO: Sort students by cohort.
